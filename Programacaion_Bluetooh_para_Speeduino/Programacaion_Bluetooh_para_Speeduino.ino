@@ -1,13 +1,15 @@
 #include <SoftwareSerial.h>
 
-SoftwareSerial miBT (10, 11); // pin 10 como RX, pin 11 como TX
+//SoftwareSerial miBT (10, 11); // pin 10 como RX, pin 11 como TX
+SoftwareSerial miBT(2, 3); // PIN 2 arduino RX y conectar al modulo TX, PIN 3 arduino TX y conectar a RX en modulo
 
 void setup() {
   Serial.begin (9600); // comunicacion de monitor serial a 9600 bps
   Serial.println ("Listo para programar con EARChile  romeroveliz@gmail.com"); // escribe Listo en el monitor
   Serial.println ("Recuerda que la ecu Speeduino o SpeedTech funciona a 115200 baud");
   Serial.println ("cualquier consulta +56958592938");
-  miBT.begin (9600); // la comunicación entre Arduino y el módulo es a 9600 bps
+ // miBT.begin (9600); // aveces la comunicación entre Arduino y el módulo es a 9600 bps, puedes  probar con esta velocidad o comenta y prueba con 38400
+  miBT.begin (38400); //IMPORTANTE PROBAR ESTA VELOCIDAD EN AULGUNOS MODULOS HC05
 }
 
 void loop() {
